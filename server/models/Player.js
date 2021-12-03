@@ -23,6 +23,9 @@ const Player = new Schema({
     },
     rank: {
         type: String,
+    },
+    fedID: {
+        type: String
     }
 });
 

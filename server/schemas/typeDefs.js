@@ -10,6 +10,22 @@ const typeDefs = gql`
     savedBooks: [Book]
   }
 
+  type Player {
+    firstName: String!
+    lastName: String!
+    gender: String!
+    club: String
+    age: Int
+    rank: String
+    fedID: String
+  }
+
+  type Tournament {
+    name: String!
+    brackets: []
+    participants: [Player]
+  }
+
   type Auth {
       token: ID!
       user: User
