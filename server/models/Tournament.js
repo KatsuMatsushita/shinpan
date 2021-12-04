@@ -1,6 +1,7 @@
 const { Schema } = require('mongoose');
 
 const Player = require('./Player');
+const Bracket = require('./Bracket');
 
 const Tournament = new Schema(
     {
@@ -9,7 +10,7 @@ const Tournament = new Schema(
             required: true,
             unique: true,
         },
-        brackets: [],
+        brackets: [Bracket],
         participants: [Player]
     }
 );

@@ -2,28 +2,36 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
-      # _id is required, username is required, email, bookCount, and savedBooks 
+      # _id is required, username is required, email 
     _id: ID!
     username: String!
     email: String
-    bookCount: Int
-    savedBooks: [Book]
+    tournaments: [Tournament]
   }
 
   type Player {
+    idNum: String
     firstName: String!
     lastName: String!
     gender: String!
     club: String
-    age: Int
+    age: Int!
     rank: String
     fedID: String
   }
 
   type Tournament {
     name: String!
-    brackets: []
+    brackets: [Bracket]
     participants: [Player]
+  }
+
+  type Bracket {
+      name: String!
+      round: Int
+      match: Int
+      player1: Player
+      player2: Player
   }
 
   type Auth {
