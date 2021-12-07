@@ -70,18 +70,50 @@ const resolvers = {
         return showBrackets;
       },
       seedBracket: async (parent, { tournamentName }) => {
-        const playerList = await Tournament.findOne(
+        const selectTournament = await Tournament.findOne(
           { name: tournamentName },
         );
 
+        const numOfPlayers = selectTournament.participants.length;
+        const numOfMatches = numOfPlayers / 2;
+        const nameOfBracket = selectTournament.brackets[0].name;
+        let currentPlayers = 0;
+        let isEven = Boolean;
+        if((numOfPlayers % 2) == 0){
+          // if there are no remainders after dividing by 2, then it is an even number
+          isEven = true;
+        }
         
+
+        for(let i=0; i<numOfMatches; i++){
+          let newPlayer1 = selectTournament.participants[currentPlayers].firstName + selectTournament.participants[currentPlayers].lastName;
+
+          let newPlayer2 = selectTournament.participants[currentPlayers+1].firstName + selectTournament.participants[currentPlayers+1].lastName;
+
+          console.log(newPlayer1);
+          console.log(newPlayer2);
+          const seedingTournament = await Tournament.findOneAndUpdate(
+            { name: tournamentName },
+            { $push: { 
+                brackets: {
+                  name: nameOfBracket,
+                  round: 1,
+                  match: i+1,
+                  player1: newPlayer1,
+                  player2: newPlayer2
+                }
+              }
+            }
+          );
+          currentPlayers = currentPlayers+2;
+        }
 
         // const seededTournament = await Tournament.findOneAndUpdate(
         //   { name: tournamentName },
         //   { $push: {brackets: [seedRound]}}
         // );
 
-        return playerList;
+        return selectTournament;
       }
     },
 };

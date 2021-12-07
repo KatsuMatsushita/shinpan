@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const playerSchema = require('./Player');
-const Bracket = require('./Bracket');
+const bracketSchema = require('./Bracket');
 
 const tournamentSchema = new Schema(
     {
@@ -10,7 +10,7 @@ const tournamentSchema = new Schema(
             required: true,
             unique: true,
         },
-        brackets: [Bracket],
+        brackets: [bracketSchema],
         participants: [playerSchema]
     }
 );
