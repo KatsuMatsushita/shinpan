@@ -1,9 +1,9 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const Player = require('./Player');
+const playerSchema = require('./Player');
 const Bracket = require('./Bracket');
 
-const Tournament = new Schema(
+const tournamentSchema = new Schema(
     {
         name: {
             type: String,
@@ -11,8 +11,10 @@ const Tournament = new Schema(
             unique: true,
         },
         brackets: [Bracket],
-        participants: [Player]
+        participants: [playerSchema]
     }
 );
+
+const Tournament = model('Tournament', tournamentSchema);
 
 module.exports = Tournament;

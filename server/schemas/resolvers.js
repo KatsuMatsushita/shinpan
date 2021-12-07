@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Tournament } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -38,7 +38,19 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       },
+      addPlayer: async (parent, { participantData, tournamentName }) => {
+        console.log(participantData);  
+        console.log(tournamentName);
+        const addedPlayer = await Tournament.findOneAndUpdate(
+              { name: tournamentName },
+              { $push: {participants: [participantData] } },
+              { new: true }
+          );
+          console.log("After update");
+        console.log({addedPlayer});
+          return { addedPlayer };
+      },
     },
-  };
+};
   
   module.exports = resolvers;

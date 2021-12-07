@@ -6,7 +6,7 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String
-    tournaments: [Tournament]
+    tournList: [String]
   }
 
   type Player {
@@ -43,9 +43,20 @@ const typeDefs = gql`
       me: User
   }
 
+  input PlayerInput {
+    firstName: String!
+    lastName: String!
+    gender: String!
+    club: String
+    age: Int!
+    rank: String
+    fedID: String
+  }
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addPlayer(participantData: PlayerInput!, tournamentName: String!): Tournament
   }
 `;
 

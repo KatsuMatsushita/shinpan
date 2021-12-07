@@ -1,0 +1,29 @@
+[
+    {
+        "firstName": "Test",
+        "lastName": "Player1",
+        "gender": "M",
+        "club": "West Point",
+        "age": 19,
+        "rank": "0",
+        "fedID": "1234"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "Player2",
+        "gender": "M",
+        "club": "RIT",
+        "age": 20,
+        "rank": "0",
+        "fedID": "1235"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "Player3",
+        "gender": "M",
+        "club": "RIT",
+        "age": 18,
+        "rank": "0",
+        "fedID": "1236"
+    }
+]
