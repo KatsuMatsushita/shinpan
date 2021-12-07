@@ -1,6 +1,5 @@
 import { gql } from '@apollo/client';
 
-// there's only 1 query, the me query. 
 // written following the example from class
 export const QUERY_ME = gql`
   {
@@ -10,4 +9,12 @@ export const QUERY_ME = gql`
       email
     }
   }
+`;
+
+export const QUERY_TOURN = gql`
+{
+  me {
+    tournList
+  }
+}
 `;
