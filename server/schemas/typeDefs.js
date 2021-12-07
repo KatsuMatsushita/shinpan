@@ -60,4 +60,27 @@ const typeDefs = gql`
   }
 `;
 
+/*
+graphQL queries for testing
+mutation AddPlayer($participantData: PlayerInput!, $tournamentName: String!) {
+  addPlayer(participantData: $participantData, tournamentName: $tournamentName) {
+    name
+  }
+}
+Variables:
+{  "participantData": {
+    "firstName": "Yvonne",
+    "lastName": "Tester",
+    "gender": "F",
+    "club": "NYU Kendo",
+    "age": 20,
+    "rank": "0",
+    "fedID": "1234"
+  },
+  "tournamentName": "RIT Annual 2022"
+}
+
+*/
+
+
 module.exports = typeDefs;

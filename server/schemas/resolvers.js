@@ -47,8 +47,8 @@ const resolvers = {
               { new: true }
           );
           console.log("After update");
-        console.log({addedPlayer});
-          return { addedPlayer };
+        console.log(addedPlayer);
+          return  addedPlayer ;
       },
     },
 };
