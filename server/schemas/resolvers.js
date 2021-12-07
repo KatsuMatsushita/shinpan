@@ -40,15 +40,13 @@ const resolvers = {
         return { token, user };
       },
       addPlayer: async (parent, { participantData, tournamentName }) => {
-        console.log(participantData);  
-        console.log(tournamentName);
+
         const addedPlayer = await Tournament.findOneAndUpdate(
               { name: tournamentName },
               { $push: {participants: [participantData] } },
               { new: true }
           );
-          console.log("After update");
-        console.log(addedPlayer);
+
           return  addedPlayer ;
       },
       setBrackets: async (parent, { bracketData, tournamentName }) => {
