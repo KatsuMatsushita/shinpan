@@ -53,10 +53,16 @@ const typeDefs = gql`
     fedID: String
   }
 
+  input BracketInput {
+    name: String!
+}
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addPlayer(participantData: PlayerInput!, tournamentName: String!): Tournament
+    setBrackets(bracketData: [BracketInput!]!, tournamentName: String!): Tournament
+    seedBracket(tournamentName: String!): Tournament
   }
 `;
 

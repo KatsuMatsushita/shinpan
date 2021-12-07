@@ -10,11 +10,11 @@ const bracketSchema = new Schema(
         },
         round: {
             type: Number,
-            required: true,
+
         },
         match: {
             type: Number,
-            required: true,
+
         },
         player1: { Player },
         player2: { Player },

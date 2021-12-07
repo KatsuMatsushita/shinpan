@@ -20,10 +20,64 @@
     {
         "firstName": "Test",
         "lastName": "Player3",
+        "gender": "F",
+        "club": "RIT",
+        "age": 18,
+        "rank": "0",
+        "fedID": "1236"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "Player4",
         "gender": "M",
         "club": "RIT",
         "age": 18,
         "rank": "0",
         "fedID": "1236"
+    },
+    {
+        "firstName": "Joe",
+        "lastName": "Tester",
+        "gender": "M",
+        "club": "NYU Kendo",
+        "age": 20,
+        "rank": "0",
+        "fedID": "2236"
+    },
+    {
+        "firstName": "Sasha",
+        "lastName": "Tester",
+        "gender": "F",
+        "club": "NYU Kendo",
+        "age": 19,
+        "rank": "0",
+        "fedID": "2237"
+    },
+    {
+        "firstName": "Kei",
+        "lastName": "Test",
+        "gender": "F",
+        "club": "NYU Kendo",
+        "age": 21,
+        "rank": "0",
+        "fedID": "2233"
+    },
+    {
+        "firstName": "Kalina",
+        "lastName": "Testing",
+        "gender": "F",
+        "club": "Griffin",
+        "age": 21,
+        "rank": "0",
+        "fedID": "3236"
+    },
+    {
+        "firstName": "PC",
+        "lastName": "Outlier",
+        "gender": "M",
+        "club": "Griffin",
+        "age": 22,
+        "rank": "1",
+        "fedID": "3237"
     }
 ]
