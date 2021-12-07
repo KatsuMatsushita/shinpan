@@ -6,7 +6,7 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String
-    tournaments: [Tournament]
+    tournList: [String]
   }
 
   type Player {
@@ -43,10 +43,50 @@ const typeDefs = gql`
       me: User
   }
 
+  input PlayerInput {
+    firstName: String!
+    lastName: String!
+    gender: String!
+    club: String
+    age: Int!
+    rank: String
+    fedID: String
+  }
+
+  input BracketInput {
+    name: String!
+}
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addPlayer(participantData: PlayerInput!, tournamentName: String!): Tournament
+    setBrackets(bracketData: [BracketInput!]!, tournamentName: String!): Tournament
+    seedBracket(tournamentName: String!): Tournament
   }
 `;
+
+/*
+graphQL queries for testing
+mutation AddPlayer($participantData: PlayerInput!, $tournamentName: String!) {
+  addPlayer(participantData: $participantData, tournamentName: $tournamentName) {
+    name
+  }
+}
+Variables:
+{  "participantData": {
+    "firstName": "Yvonne",
+    "lastName": "Tester",
+    "gender": "F",
+    "club": "NYU Kendo",
+    "age": 20,
+    "rank": "0",
+    "fedID": "1234"
+  },
+  "tournamentName": "RIT Annual 2022"
+}
+
+*/
+
 
 module.exports = typeDefs;

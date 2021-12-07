@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose');
 
 // Players will be a subdocument schema in Tournaments
-const Player = new Schema({
+const playerSchema = new Schema({
     idNum: {
         type: String,
     },
@@ -37,7 +37,7 @@ const Player = new Schema({
 // generate the idNum when the Player is created
 // future implementation may use an auto-increment
 // https://www.mongodb.com/basics/mongodb-auto-increment
-Player.pre('save', async function (next) {
+playerSchema.pre('save', async function (next) {
     if (this.isNew) {
       const idNumber = this.rank + this.fedID;
       this.idNum = idNumber;
@@ -46,4 +46,6 @@ Player.pre('save', async function (next) {
     next();
 });
 
-module.exports = Player;
+//const Player = model('Player', playerSchema);
+
+module.exports = playerSchema;

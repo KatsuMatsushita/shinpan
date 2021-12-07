@@ -2,7 +2,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const Tournament = require('./Tournament');
+//const Tournament = require('./Tournament');
 
 const userSchema = new Schema(
     {
@@ -21,7 +21,11 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        tournaments: [Tournament],
+        tournList: [{
+            name: {
+                type: String
+            }
+        }],
     },
     {
         toJSON: {

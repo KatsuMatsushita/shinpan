@@ -1,8 +1,8 @@
 const { Schema } = require('mongoose');
 
-const Player = require('./Player');
+const playerSchema = require('./Player');
 // Players will be a subdocument schema in Tournament
-const Bracket = new Schema(
+const bracketSchema = new Schema(
     {
         name: {
             type: String,
@@ -10,15 +10,17 @@ const Bracket = new Schema(
         },
         round: {
             type: Number,
-            required: true,
+
         },
         match: {
             type: Number,
-            required: true,
+
         },
-        player1: { Player },
-        player2: { Player },
+        player1: { type: String },
+        player2: { type: String },
     }
 );
 
-module.exports = Bracket;
+//const Bracket = model('Bracket', bracketSchema);
+
+module.exports = bracketSchema;
