@@ -84,12 +84,12 @@ const resolvers = {
         
 
         for(let i=0; i<numOfMatches; i++){
-          let newPlayer1 = selectTournament.participants[currentPlayers].firstName + selectTournament.participants[currentPlayers].lastName;
+          let newPlayer1 = selectTournament.participants[currentPlayers].firstName + " " + selectTournament.participants[currentPlayers].lastName;
 
-          let newPlayer2 = selectTournament.participants[currentPlayers+1].firstName + selectTournament.participants[currentPlayers+1].lastName;
+          let newPlayer2 = selectTournament.participants[currentPlayers+1].firstName + " " + selectTournament.participants[currentPlayers+1].lastName;
 
-          console.log(newPlayer1);
-          console.log(newPlayer2);
+          //console.log(newPlayer1);
+          //console.log(newPlayer2);
           const seedingTournament = await Tournament.findOneAndUpdate(
             { name: tournamentName },
             { $push: { 
@@ -105,11 +105,6 @@ const resolvers = {
           );
           currentPlayers = currentPlayers+2;
         }
-
-        // const seededTournament = await Tournament.findOneAndUpdate(
-        //   { name: tournamentName },
-        //   { $push: {brackets: [seedRound]}}
-        // );
 
         return selectTournament;
       }
